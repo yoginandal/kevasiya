@@ -26,7 +26,14 @@
       }
     ]
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "src/app/uiComponents/text-animate.jsx",
+    "src/app/uiComponents/IconMarquee.jsx"
+  ],
   "exclude": [
     "node_modules",
     ".next",

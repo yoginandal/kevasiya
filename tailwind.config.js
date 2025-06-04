@@ -34,6 +34,7 @@ module.exports = {
           80: "#1F2937",
           90: "#111827",
         },
+        "kevasiya-gold": "#AE8F65",
       },
       borderRadius: {
         none: "0px",
