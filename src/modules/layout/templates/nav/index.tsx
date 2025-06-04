@@ -22,27 +22,29 @@ export default async function Nav() {
           {/* Left Section */}
           <div className="flex items-center gap-6">
             <SideMenu regions={regions} />
+
+            {/* Logo Link */}
             <LocalizedClientLink
               href="/"
-              className="flex items-center group"
+              className="flex items-center"
               data-testid="nav-store-link"
             >
               <Image src="/logo.png" alt="Kevasiya" width={200} height={200} />
-
-              {/* Middle Section */}
-              <div className="hidden lg:flex items-center ml-6 gap-x-10">
-                {["Baby", "Wedding", "Corporates", "Occasions"].map((item) => (
-                  <LocalizedClientLink
-                    key={item}
-                    href={`/${item.toLowerCase()}`}
-                    className="relative font-medium text-[#997e58] hover:text-cyan-700 transition-colors duration-300 group"
-                  >
-                    {item}
-                    <span className="absolute bottom-0 left-0 w-0 h-px bg-cyan-700 transition-all duration-300 group-hover:w-full"></span>
-                  </LocalizedClientLink>
-                ))}
-              </div>
             </LocalizedClientLink>
+
+            {/* Middle Section - Main Menu */}
+            <div className="hidden lg:flex items-center ml-6 gap-x-10">
+              {["Baby", "Wedding", "Corporates", "Occasions"].map((item) => (
+                <LocalizedClientLink
+                  key={item}
+                  href={`/${item.toLowerCase()}`}
+                  className="relative font-medium text-[#997e58] hover:text-cyan-700 transition-colors duration-300 group"
+                >
+                  {item}
+                  <span className="absolute bottom-0 left-0 w-0 h-px bg-cyan-700 transition-all duration-300 group-hover:w-full"></span>
+                </LocalizedClientLink>
+              ))}
+            </div>
           </div>
 
           {/* Right Section */}
