@@ -16,6 +16,7 @@ import LocalizedClientLink from "@modules/common/components/localized-client-lin
 import Thumbnail from "@modules/products/components/thumbnail"
 import { usePathname } from "next/navigation"
 import { Fragment, useEffect, useRef, useState } from "react"
+import { BaggageClaim } from "lucide-react"
 
 const CartDropdown = ({
   cart: cartState,
@@ -85,8 +86,11 @@ const CartDropdown = ({
             className="hover:text-ui-fg-base"
             href="/cart"
             data-testid="nav-cart-link"
-          >{`Cart (${totalItems})`}</LocalizedClientLink>
+          >
+            <BaggageClaim className="w-6 h-6 text-current" strokeWidth={1.2} />
+          </LocalizedClientLink>
         </PopoverButton>
+
         <Transition
           show={cartDropdownOpen}
           as={Fragment}
