@@ -15,12 +15,12 @@ export default function CardSection() {
         {/* Top 2 Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <Card
-            image="/cardimages/cardOne.webp"
+            image="/cardImages/cardOne.webp"
             title="Feature Card A"
             description="Highlighting a key aspect with beautiful styling"
           />
           <Card
-            image="/cardimages/cardTwo.webp"
+            image="/cardImages/cardTwo.webp"
             title="Feature Card B"
             description="Showcasing another benefit of our services"
           />
@@ -29,7 +29,7 @@ export default function CardSection() {
         {/* Center Card */}
         <div className="mx-auto w-full">
           <Card
-            image="/cardimages/cardOne.webp"
+            image="/cardImages/cardOne.webp"
             title="Central Showcase Card"
             description="Dominant focus item drawing major attention"
           />
@@ -38,12 +38,12 @@ export default function CardSection() {
         {/* Bottom 2 Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <Card
-            image="/cardimages/cardOne.webp"
+            image="/cardImages/cardOne.webp"
             title="Support Card X"
             description="Detailing support or extra insights"
           />
           <Card
-            image="/cardimages/cardTwo.webp"
+            image="/cardImages/cardTwo.webp"
             title="Support Card Y"
             description="Additional information or call-to-action"
           />
