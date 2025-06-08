@@ -40,7 +40,7 @@ const WhyKevasiya: React.FC = () => {
     <section className="py-16 md:py-24 bg-white text-gray-900">
       <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-gray-900">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif text-[#3a5a40] font-extrabold tracking-tight ">
             Why Choose <span className="text-kevasiya-gold">Kevasiya</span>?
           </h2>
           <p className="mt-3 text-base sm:text-lg text-gray-600 max-w-2xl mx-auto">

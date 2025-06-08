@@ -22,7 +22,7 @@ export default function IconMarquee({ icons }) {
           <ReviewCard key={`first-${index}`} {...icon} />
         ))}
       </Marquee>
-      <Marquee reverse pauseOnHover className="[--duration:8s]">
+      <Marquee reverse pauseOnHover className="[--duration:10s]">
         {secondRow?.map((icon, index) => (
           <ReviewCard key={`second-${index}`} {...icon} />
         ))}

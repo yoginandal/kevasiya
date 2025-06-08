@@ -48,11 +48,11 @@ const SpecialOccasions: React.FC = () => {
     <section className="py-16 md:py-24 bg-slate-50">
       <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-800 tracking-tight">
-            Gifts for Every Occasion
+          <h2 className="text-center font-semibold text-4xl md:text-5xl font-serif text-[#3a5a40] mb-4">
+            Special Occasions
           </h2>
-          <p className="mt-3 text-base sm:text-lg text-slate-600 max-w-2xl mx-auto">
-            Making every celebration memorable with the perfect present.
+          <p className="mt-3 text-base sm:text-lg s max-w-2xl mx-auto font-serif text-[#3a5a40]">
+            Making every celebration memorable with the perfect gift.
           </p>
           <div className="mt-6 w-24 h-1.5 bg-gray-500 mx-auto rounded-full"></div>
         </div>
@@ -62,18 +62,13 @@ const SpecialOccasions: React.FC = () => {
             const IconComponent = occasion.icon
             return (
               <Link href={occasion.href} key={occasion.id} legacyBehavior>
-                <a className="group block bg-white rounded-xl shadow-lg hover:shadow-pink-200/50 hover:shadow-xl transition-all duration-300 ease-in-out overflow-hidden transform hover:-translate-y-1 aspect-[4/3] flex flex-col items-center justify-center p-6 text-center">
+                <a className="group block bg-white rounded-[50%] h-[250px] w-[250px] shadow-lg hover:shadow-[#AE8F65]/50 hover:shadow-xl transition-all duration-300 ease-in-out overflow-hidden transform hover:-translate-y-1 aspect-[4/3] flex flex-col items-center justify-center p-6 text-center">
                   {IconComponent && (
-                    <IconComponent className="w-12 h-12 sm:w-16 sm:h-16 text-gray-500 mb-4 transition-transform duration-300 group-hover:scale-110" />
+                    <IconComponent className="w-12 h-12 sm:w-16 sm:h-16 text-[#AE8F65] mb-4 transition-transform duration-300 group-hover:scale-110" />
                   )}
-                  <h3 className="text-xl sm:text-2xl font-semibold text-slate-800 group-hover:text-pink-600 transition-colors duration-300">
+                  <h3 className="text-xl sm:text-2xl font-semibold font-serif text-[#3a5a40] group-hover:text-black transition-colors duration-300">
                     {occasion.name}
                   </h3>
-                  {occasion.description && (
-                    <p className="mt-2 text-sm text-slate-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
-                      {occasion.description}
-                    </p>
-                  )}
                 </a>
               </Link>
             )

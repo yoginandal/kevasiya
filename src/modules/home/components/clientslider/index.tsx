@@ -1,4 +1,4 @@
-import Heading from "../../../../app/uiComponents/heading"
+// import Heading from "../../../../app/uiComponents/heading"
 import IconMarquee from "../../../../app/uiComponents/IconMarquee"
 
 import React from "react"
@@ -17,20 +17,13 @@ const slideUpVariants = {
 export function ClientsSlider({ icons }: ClientsSliderProps) {
   return (
     <section className="py-16 container mx-auto px-4 relative overflow-hidden">
-      <div className="absolute inset-0 opacity-5">
-        <div
-          className="w-full h-full"
-          style={{
-            backgroundImage:
-              "linear-gradient(to right, black 1px, transparent 1px), linear-gradient(black 1px, transparent 1px)",
-            backgroundSize: "20px 20px",
-          }}
-        ></div>
-      </div>
       <div className="max-w-7xl mx-auto text-center">
-        <Heading title={"Clients Slider"} />
+        <h2 className="text-center font-semibold text-4xl md:text-5xl font-serif text-[#3a5a40] mb-8 md:mb-16">
+          Trusted By
+        </h2>
 
         <div className="h-1 w-20 bg-cusYellow mx-auto rounded-full"></div>
+
         <div className="mt-10">
           <IconMarquee icons={icons} />
         </div>

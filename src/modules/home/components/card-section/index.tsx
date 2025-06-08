@@ -1,28 +1,27 @@
 "use client"
 
 import Card from "../../../../app/uiComponents/card"
-import SectionHeading from "../../../../app/uiComponents/heading"
+// import SectionHeading from "../../../../app/uiComponents/heading"
 
 export default function CardSection() {
   return (
     <section className="py-20 px-4 max-w-6xl mx-auto">
-      <SectionHeading
-        title="Our Unique Card Layout"
-        subtitle="Beautifully balanced 2-1-2 layout with unified alignment"
-      />
+      <h2 className="text-center font-semibold text-4xl md:text-5xl font-serif text-[#3a5a40] mb-8 md:mb-16">
+        Specially Curated
+      </h2>
 
       <div className="mt-16 grid gap-12">
         {/* Top 2 Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <Card
             image="/cardImages/cardOne.webp"
-            title="Feature Card A"
-            description="Highlighting a key aspect with beautiful styling"
+            title="Baby Announcement"
+            description="A beautiful way to announce the arrival of your baby"
           />
           <Card
             image="/cardImages/cardTwo.webp"
-            title="Feature Card B"
-            description="Showcasing another benefit of our services"
+            title="Festive Gifting"
+            description="A beautiful way to gift your loved ones"
           />
         </div>
 
@@ -30,8 +29,8 @@ export default function CardSection() {
         <div className="mx-auto w-full">
           <Card
             image="/cardImages/cardOne.webp"
-            title="Central Showcase Card"
-            description="Dominant focus item drawing major attention"
+            title="Corporate Gifting"
+            description="A beautiful way to gift your loved ones"
           />
         </div>
 
@@ -39,13 +38,13 @@ export default function CardSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <Card
             image="/cardImages/cardOne.webp"
-            title="Support Card X"
-            description="Detailing support or extra insights"
+            title="Wedding Gifts"
+            description="A beautiful way to invite your loved ones"
           />
           <Card
             image="/cardImages/cardTwo.webp"
-            title="Support Card Y"
-            description="Additional information or call-to-action"
+            title="Special Occasion"
+            description="A beautiful way to gift your loved ones"
           />
         </div>
       </div>
