@@ -73,7 +73,7 @@ const GiftCategories = () => {
             variants={cardSlideIn}
             className="md:col-span-5 relative overflow-hidden sm:rounded-bl-[7rem] h-80 sm:h-[600px]"
           >
-            <Link href="#rewards-recognition">
+            <Link href="#rewards-recognition" legacyBehavior>
               <motion.div whileHover="hover">
                 <motion.img
                   variants={imageHoverEffect}
@@ -111,7 +111,7 @@ const GiftCategories = () => {
               variants={cardSlideIn}
               className="relative overflow-hidden sm:rounded-tr-[7rem] h-80 sm:h-[345px]"
             >
-              <Link href="#work-anniversary">
+              <Link href="#work-anniversary" legacyBehavior>
                 <motion.div whileHover="hover">
                   <Image
                     src="/images/categories/categories (2).webp"
@@ -142,7 +142,7 @@ const GiftCategories = () => {
                 variants={cardSlideIn}
                 className="relative overflow-hidden h-80 sm:h-[230px]"
               >
-                <Link href="#employee-onboarding">
+                <Link href="#employee-onboarding" legacyBehavior>
                   <motion.div whileHover="hover">
                     <Image
                       src="/images/categories/categories (3).webp"
@@ -170,7 +170,7 @@ const GiftCategories = () => {
                 variants={cardSlideIn}
                 className="relative overflow-hidden h-80 sm:h-[230px]"
               >
-                <Link href="#client-appreciation">
+                <Link href="#client-appreciation" legacyBehavior>
                   <motion.div whileHover="hover">
                     <Image
                       src="/images/categories/categories (4).webp"
@@ -198,7 +198,7 @@ const GiftCategories = () => {
                 variants={cardSlideIn}
                 className="relative overflow-hidden h-80 sm:h-[230px]"
               >
-                <Link href="#clients">
+                <Link href="#clients" legacyBehavior>
                   <motion.div whileHover="hover">
                     <Image
                       src="/images/categories/categories (5).webp"
@@ -223,7 +223,7 @@ const GiftCategories = () => {
         </div>
       </Container>
     </motion.div>
-  )
+  );
 }
 
 export default GiftCategories

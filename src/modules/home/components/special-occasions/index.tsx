@@ -79,9 +79,8 @@ const AnimatedCard = ({
       transition: {
         type: "spring",
         damping: 15,
-        stiffness: 100,
-        mass: 0.5,
-        delay: index * 0.1,
+        stiffness: 60,
+        delay: index * 0.2,
       },
     },
   }

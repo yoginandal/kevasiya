@@ -1,3 +1,7 @@
+"use client"
+
+import { motion } from "framer-motion"
+import { useInView } from "react-intersection-observer"
 import React from "react"
 import { FiTruck, FiGift, FiCheckSquare, FiSmile } from "react-icons/fi" // Example icons
 
@@ -36,6 +40,35 @@ const benefitsData: Benefit[] = [
 ]
 
 const WhyKevasiya: React.FC = () => {
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  })
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.25,
+        delayChildren: 0.2,
+      },
+    },
+  }
+
+  const itemVariants = {
+    hidden: { y: 30, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        type: "spring",
+        damping: 15,
+        stiffness: 80,
+      },
+    },
+  }
+
   return (
     <section className="py-16 md:py-24 bg-white text-gray-900">
       <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -50,12 +83,19 @@ const WhyKevasiya: React.FC = () => {
           <div className="mt-6 w-24 h-1.5 bg-kevasiya-gold mx-auto rounded-full"></div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <motion.div
+          ref={ref}
+          initial="hidden"
+          animate={inView ? "visible" : "hidden"}
+          variants={containerVariants}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+        >
           {benefitsData.map((benefit) => {
             const IconComponent = benefit.icon
             return (
-              <div
+              <motion.div
                 key={benefit.id}
+                variants={itemVariants}
                 className="bg-white p-8 rounded-xl shadow-lg border border-gray-200 hover:shadow-kevasiya-gold/20 hover:shadow-xl transition-all duration-300 ease-in-out transform hover:-translate-y-1 flex flex-col items-center text-center"
               >
                 <div className="p-4 bg-kevasiya-gold/10 rounded-full mb-6">
@@ -67,10 +107,10 @@ const WhyKevasiya: React.FC = () => {
                 <p className="text-gray-600 text-sm leading-relaxed">
                   {benefit.description}
                 </p>
-              </div>
+              </motion.div>
             )
           })}
-        </div>
+        </motion.div>
       </div>
     </section>
   )

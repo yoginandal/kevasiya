@@ -69,7 +69,7 @@ const ShippingDetails = ({ order }: ShippingDetailsProps) => {
       </div>
       <Divider className="mt-8" />
     </div>
-  )
+  );
 }
 
 export default ShippingDetails

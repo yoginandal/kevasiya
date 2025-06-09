@@ -76,7 +76,7 @@ const Services = () => {
           variants={cardGroupFadeInUp}
           className="relative w-full h-64 md:h-80 mb-6 overflow-hidden rounded-t-sm"
         >
-          <Link href="/catalogue">
+          <Link href="/catalogue" legacyBehavior>
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/0 to-black/0 transition-colors z-10"></div>
             <Image
               src="/images/serviceImage/services (1).webp"
@@ -105,7 +105,7 @@ const Services = () => {
             variants={cardItemFadeInUp}
             className="relative w-full h-52 md:h-64 overflow-hidden rounded-bl-sm"
           >
-            <Link href="/custom-gifts">
+            <Link href="/custom-gifts" legacyBehavior>
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/0 to-black/0 transition-colors z-10"></div>
               <Image
                 src="/images/serviceImage/services (2).webp"
@@ -129,7 +129,7 @@ const Services = () => {
             variants={cardItemFadeInUp}
             className="relative w-full h-52 md:h-64 overflow-hidden"
           >
-            <Link href="/consultation">
+            <Link href="/consultation" legacyBehavior>
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/0 to-black/0 transition-colors z-10"></div>
               <Image
                 src="/images/serviceImage/services (3).webp"
@@ -153,7 +153,7 @@ const Services = () => {
             variants={cardItemFadeInUp}
             className="relative w-full h-52 md:h-64 overflow-hidden rounded-br-sm"
           >
-            <Link href="/promotional-gifts">
+            <Link href="/promotional-gifts" legacyBehavior>
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/0 to-black/0 transition-colors z-10"></div>
               <Image
                 src="/images/serviceImage/services (4).webp"
@@ -174,7 +174,7 @@ const Services = () => {
         </motion.div>
       </div>
     </motion.div>
-  )
+  );
 }
 
 export default Services

@@ -161,83 +161,55 @@ interface MedusaApiProduct {
 export interface UiProduct {
   id: string
   title: string
-  thumbnail?: string | null // Allow null or undefined
+  thumbnail?: string | null
   handle: string
   price: number
+  variantId?: string
   currencySymbol?: string
-  isNew?: boolean // This might not come from Medusa directly
-  discountPrice?: number // This might not come from Medusa directly
+  isNew?: boolean
+  discountPrice?: number
 }
 
-export async function getStoreProducts(
-  limit: number = 4
-): Promise<UiProduct[]> {
-  const medusaBackendUrl =
-    process.env.NEXT_PUBLIC_MEDUSA_BACKEND_URL || "http://localhost:9000"
-
+export async function getStoreProducts(count: number): Promise<UiProduct[]> {
   try {
-    const response = await fetch(
-      `${medusaBackendUrl}/store/products?limit=${limit}`,
-      {
-        next: { revalidate: 60 }, // Optional: ISR, revalidate every 60 seconds
-      }
-    )
-
-    if (!response.ok) {
-      // Log the error or throw a more specific error to be caught by the caller
-      const errorBody = await response.text()
-      console.error(
-        `Failed to fetch products: ${response.status} ${response.statusText}`,
-        errorBody
-      )
-      throw new Error(`Failed to fetch products. Status: ${response.status}`)
-    }
-
-    const { products: medusaProducts } = (await response.json()) as {
-      products: MedusaApiProduct[]
-    }
+    const { products: medusaProducts } = await sdk.store.product.list({
+      limit: count,
+      fields:
+        "*variants.calculated_price,+variants.inventory_quantity,+metadata,+tags",
+    })
 
     if (!medusaProducts) {
-      console.warn(
-        "No products found in API response or response format is unexpected."
-      )
       return []
     }
 
-    // Transform Medusa products to the structure your UI component expects (UiProduct)
     const transformedProducts: UiProduct[] = medusaProducts.map((p) => {
       let productPrice = 0
-      let currency = "usd" // Default currency
+      let currency = "usd"
+      const firstVariant = p.variants?.[0]
 
-      if (
-        p.variants &&
-        p.variants.length > 0 &&
-        p.variants[0].prices &&
-        p.variants[0].prices.length > 0
-      ) {
-        const priceInfo = p.variants[0].prices[0]
-        productPrice = priceInfo.amount / 100 // Medusa prices are often in smallest currency unit
-        currency = priceInfo.currency_code
+      if (firstVariant?.calculated_price?.calculated_amount !== undefined) {
+        const priceInfo = firstVariant.calculated_price
+        productPrice = (priceInfo.calculated_amount || 0) / 100
+        currency = priceInfo.currency_code || "usd"
       }
 
-      // Ensure handle is a string, provide a fallback if null (though products should have handles)
       const productHandle = p.handle || p.id
 
       return {
         id: p.id,
         title: p.title,
-        thumbnail: p.thumbnail || undefined, // Ensure undefined if null for component
+        thumbnail: p.thumbnail || undefined,
         handle: productHandle,
         price: productPrice,
+        variantId: firstVariant?.id,
         currencySymbol:
           currency.toUpperCase() === "USD"
             ? "$"
             : currency.toUpperCase() === "EUR"
             ? "€"
             : currency.toUpperCase(),
-        // isNew and discountPrice would require custom logic or specific Medusa fields
-        isNew: false, // Placeholder
-        // discountPrice: undefined, // Placeholder
+        isNew: false,
+        discountPrice: undefined,
       }
     })
 
